@@ -96,7 +96,7 @@ MapReduce is great for boilerplate queries that your application needs to do aga
 
 ---
 
-That's the end of this part. The next part is called ["Dates"](Part\ 13\ -\ Dates.md)
+That's the end of this part. The next part is called ["Dates"](./Part&#32;13&#32;-&#32;Dates.md)
  
 ![](slides/Slide0.png)
 

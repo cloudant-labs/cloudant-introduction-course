@@ -47,7 +47,7 @@ If you need to use Cloudant Query on one of the component parts, then that would
 ![](slides/Slide100.png)
 
 ---
-That's the end of this part. The next part is called ["Replication"](Part\ 14\ -\ Replication.md)
+That's the end of this part. The next part is called ["Replication"](./Part&#32;14&#32;-&#32;Replication.md)
  
 ![](slides/Slide0.png)
 

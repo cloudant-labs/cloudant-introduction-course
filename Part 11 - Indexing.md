@@ -88,7 +88,7 @@ The `_index` endpoint is used to define the index and an optional partial filter
 
 ---
 
-That's the end of this part. The next part is called ["MapReduce"](Part\ 12\ -\ MapReduce.md)
+That's the end of this part. The next part is called ["MapReduce"](./Part&#32;12&#32;-&#32;MapReduce.md)
  
 ![](slides/Slide0.png)
 

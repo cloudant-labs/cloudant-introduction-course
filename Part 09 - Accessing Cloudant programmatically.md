@@ -59,7 +59,7 @@ Note: retrying such API calls is sensible if your have a temporary and unexpecte
 
 ---
 
-That's the end of this part. The next part is called ["Querying"](Part\ 10\ -\ Querying.md)
+That's the end of this part. The next part is called ["Querying"](./Part&#32;10&#32;-&#32;Querying.md)
  
 ![](slides/Slide0.png)
 

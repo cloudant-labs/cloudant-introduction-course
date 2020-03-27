@@ -100,6 +100,8 @@ An alternative to this is have three databases people/books/places and keep each
 
 ---
 
+To summarise:
+
 Although Cloudant is "schemaless", this doesn't absolve you of the need to do detailed data design to get the best performance.
 
 Here are some tips, especially relevant if you have some relational database experience.
@@ -114,7 +116,7 @@ Here are some tips, especially relevant if you have some relational database exp
 
 ---
 
-That's the end of this part. The next part is called ["The Document id"](Part\ 03\ -\ The\ Document\ _id)
+That's the end of this part. The next part is called ["The Document id"](./Part&#32;03&#32;-&#32;The&#32;Document&#32;_id)
  
 ![](slides/Slide0.png)
 

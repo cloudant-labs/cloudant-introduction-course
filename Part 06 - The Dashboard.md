@@ -78,7 +78,7 @@ To summarise:
 
 ---
 
-That's the end of this part. The next part is called ["HTTP API Basics"](Part\ 07\ -\ HTTP\ API\ Basics.md)
+That's the end of this part. The next part is called ["HTTP API Basics"](./Part&#32;07&#32;-&#32;HTTP&#32;API&#32;Basics.md)
  
 ![](slides/Slide0.png)
 

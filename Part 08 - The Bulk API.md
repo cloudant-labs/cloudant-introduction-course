@@ -48,7 +48,7 @@ With two API calls `_bulk_docs` & `_all_docs` we can perform all create, read, u
 
 ---
 
-That's the end of this part. The next part is called ["Accessing Cloudant programmatically"](Part\ 09\ -\ Accessing\ Cloudant\ programmatically.md)
+That's the end of this part. The next part is called ["Accessing Cloudant programmatically"](./Part&#32;09&#32;-&#32;Accessing&#32;Cloudant&#32;programmatically.md)
  
 ![](slides/Slide0.png)
 

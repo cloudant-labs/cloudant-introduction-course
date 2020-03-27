@@ -51,7 +51,7 @@ To summarise
 
 ---
 
-That's the end of this part. The next part is called ["The Document"](Part 02 - The Document.md)
+That's the end of this part. The next part is called [The Document](./Part&#32;02&#32;-&#32;The&#32;Document.md)
  
 ![](slides/Slide0.png)
 

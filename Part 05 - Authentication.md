@@ -71,7 +71,7 @@ Credentials are generated from the IBM Cloud dashboard. You can have IAM or both
 
 ---
 
-That's the end of this part. The next part is called ["The dashboard"](Part\ 06\ -\ The\ Dashboard.md)
+That's the end of this part. The next part is called ["The dashboard"](./Part&#32;06&#32;-&#32;The&#32;Dashboard.md)
  
 ![](slides/Slide0.png)
 

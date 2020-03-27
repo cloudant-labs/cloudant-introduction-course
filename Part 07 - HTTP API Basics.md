@@ -159,7 +159,7 @@ All actions can be triggered using simple HTTP API calls, from the command-line 
 ---
 
 
-That's the end of this part. The next part is called ["The Bulk API"](Part\ 08\ -\ The\ Bulk\ API.md)
+That's the end of this part. The next part is called ["The Bulk API"](./Part&#32;08&#32;-&#32;The&#32;Bulk&#32;API.md)
  
 ![](slides/Slide0.png)
 

@@ -67,7 +67,7 @@ Note: Cloudant Search also powers 'type=text' Cloudant Query indexes, so a subse
 
 ---
 
-That's the end of this part. The next part is called ["Geospatial"](Part\ 17\ -\ Geospatial.md)
+That's the end of this part. The next part is called ["Geospatial"](./Part&#32;17&#32;-&#32;Geospatial.md)
  
 ![](slides/Slide0.png)
 

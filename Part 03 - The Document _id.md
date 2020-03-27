@@ -59,7 +59,7 @@ The `_id` field is the basis of the database's primary index which, as we'll see
 
 ---
 
-That's the end of this part. The next part is called ["The rev token"](Part\ 04\ -\ The\ rev\ token.md)
+That's the end of this part. The next part is called ["The rev token"](./Part&#32;04&#32;-&#32;The&#32;rev&#32;token.md)
  
 ![](slides/Slide0.png)
 

@@ -96,7 +96,7 @@ Replications can be one-off or continuous and can optionally be filtered with a 
 
 ---
 
-That's the end of this part. The next part is called ["Partitioned Databases"](Part\ 15\ -\ Partitioned Databases.md)
+That's the end of this part. The next part is called ["Partitioned Databases"](./Part&#32;15&#32;-&#32;Partitioned&#32;Databases.md)
  
 ![](slides/Slide0.png)
 

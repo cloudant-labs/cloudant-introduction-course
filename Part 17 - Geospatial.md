@@ -33,7 +33,7 @@ Cloudant Geo is something unique to the Cloudant service and is used to perform 
 
 ---
 
-That's the end of this part. The next part is called ["Under the hood"](Part\ 18\ -\ Under\ the\ hood.md)
+That's the end of this part. The next part is called ["Under the hood"](./Part&#32;18&#32;-&#32;Under&#32;the&#32;hood.md)
  
 ![](slides/Slide0.png)
 

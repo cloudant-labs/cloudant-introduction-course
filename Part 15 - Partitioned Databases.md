@@ -75,7 +75,7 @@ Note it's still possible to query across partitions in a partitioned database. W
 
 ---
 
-That's the end of this part. The next part is called ["Cloudant Search"](Part\ 16\ -\ Cloudant Search.md)
+That's the end of this part. The next part is called ["Cloudant Search"](./Part&#32;16&#32;-&#32;Cloudan&#32;Search.md)
  
 ![](slides/Slide0.png)
 

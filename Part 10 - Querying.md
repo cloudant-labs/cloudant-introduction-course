@@ -112,7 +112,7 @@ The query's selector decides which cut of data is required,
 
 ---
 
-That's the end of this part. The next part is called ["Indexing"](Part\ 11\ -\ Indexing.md)
+That's the end of this part. The next part is called ["Indexing"](./Part&#32;11&#32;-&#32;Indexing.md)
  
 ![](slides/Slide0.png)
 

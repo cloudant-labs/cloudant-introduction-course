@@ -82,7 +82,7 @@ To summarise:
 --- 
 
 
-That's the end of this part. The next part is called ["Authentication"](Part\ 05\ -\ Authentication.md)
+That's the end of this part. The next part is called ["Authentication"](./Part&#32;05&#32;-&#32;Authentication.md)
  
 ![](slides/Slide0.png)
 
