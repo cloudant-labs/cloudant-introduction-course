@@ -50,7 +50,7 @@ Now for your first practical exercise. Visit www.ibm.com/cloud and register an a
 
 One registered, you may click on "services", search for the "Cloudant" database and provision a new service.
 
-The Cloudant "Lite" service provides a free plan to allow users to try Cloudant in a limited capacity while in development. It's bigger brother, the "Standard Plan", is paid-for service where you specify the number of reads/writes/and queries per second your application and that capacity is reserved for you. You pay for the capacity you provision and your data storage usage.
+The Cloudant "Lite" service provides a free plan to allow users to try Cloudant in a limited capacity while in development. Its bigger brother, the "Standard Plan", is paid-for service where you specify the number of reads/writes/and queries per second your application and that capacity is reserved for you. You pay for the capacity you provision and your data storage usage.
 
 The Lite plan operates in a similar way, but only has a small provisioned capacity and a fixed storage size, but is fine for "kicking the tyres".
 
