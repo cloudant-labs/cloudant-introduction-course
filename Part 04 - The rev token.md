@@ -8,18 +8,18 @@ Welcome to the Introduction to Cloudant course, an eighteen part video series th
 
 This is part 4: "The rev token"
 
-The second fundamental Cloudant rule is that each document revision is given its own unique revision token. Let's find out what it means
+The second fundamental Cloudant rule is that each document revision is given its own unique revision token. Let's find out what it means.
 
 
 ![](slides/Slide24.png)
 
 ---
 
-You never need to generate a revision token - one is created for you when you add/update/delete a document using the API.
+You never need to generate a revision token - one is created for you when you add, update or delete a document using the API.
 
 A revision token consists of two parts:
 
-- a number 1, 2, 3, etc
+- a number 1, 2, 3, etc, and
 - a cryptographic hash of the document's body
 
 (For the uninitiated, a hash is a digital "fingerprint" of some data. If the data changes, the fingerprint changes. No two fingerprints are the same i.e. no two documents with different content would have the same hash.)
@@ -30,11 +30,11 @@ You can see from the example on the right that our document has a revision token
 
 ---
 
-If we follow the lifecycle of a document, it starts with a "revision 1". When it's modified later, it gets a "revision 2" and so on. With each incrementing revision number, the hash also changes because the content of the document is being modified too.
+If we follow the lifecycle of a document, it starts with a "revision 1". When it is modified later, it gets a "revision 2" and so on. With each incrementing revision number, the hash also changes because the content of the document is being modified too.
 
 One thing to note:
 
-> It is *possible* for a document to have more than one revisions with the same number. i.e. two "revision 3s". This is called  a "conflict" and is "normal" in some circumstances. We'll see why later in the course, but for now we can assume that the revision number will increment with update to a document.
+> It is *possible* for a document to have more than one revisions with the same number. i.e. two "revision 3s". This is called  a "conflict" and is "normal" in some circumstances. We'll see why later in the course, but for now we can assume that the revision number will increment with each update to a document.
 
 ![](slides/Slide26.png)
 
@@ -42,13 +42,13 @@ One thing to note:
 
 Let's follow the lifecycle of an example Cloudant document
 
-When  a new document is created (auto-generated `_id` or user-supplied `_id`), it is allocated a "revision 1". You will be sent the token in the response to your API request. Normally you can discard the _id (UNLESS you intend to modify the document in the near future, as we'll see).
+When  a new document is created (whether with an auto-generated `_id` or user-supplied `_id`), it is allocated a "revision 1". You will be sent the token in the response to your API request. Normally you can discard the `rev` (UNLESS you intend to modify the document in the near future, as we'll see).
 
 ![](slides/Slide27.png)
 
 --- 
 
-When we modify a document  whose `_rev` is at "revision 1" (notice we've change the name from Liz --> Elizabeth), the document is saved and a "revision 2" token is generated and returned to you in the API response.
+When we modify a document  whose `_rev` is at "revision 1" (notice we've changed the name in the document from Liz --> Elizabeth), the document is saved and a "revision 2" token is generated and returned to you in the API response.
 
 All simple enough so far.
 
@@ -64,7 +64,7 @@ In fact the document's recent revision history (the tree of revisions - remember
 
 Note
 
-> You can't use Cloudant's revision tree as version control system to retrieve or "rollback" to old revision. Once revision is superceded, the document _body_ of the older revision is deleted and its disk space recovered in a process called "compaction". Compaction occurs automatically in Cloudant, so it's not safe to assume that old revisions will be available to be retrieved. 
+> You can't use Cloudant's revision tree as a   version control system to retrieve or "rollback" to an older revision. Once a revision is superceded, the document _body_ of the older revision is deleted and its disk space recovered in a process called "compaction". Compaction occurs automatically in Cloudant, so it's not safe to assume that old revisions will be available to be retrieved. 
 
 ![](slides/Slide29.png)
 

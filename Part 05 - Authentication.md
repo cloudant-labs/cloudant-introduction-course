@@ -16,10 +16,10 @@ We said earlier that Cloudant is a web-based service on the public internet. How
 
 Cloudant supports two types of authentication. 
 
-1. Legacy authentication is where are either supplied with each request using _HTTP Basic Authentication_ or exchanged for cookie, using a one-off `session` API call. The cookie is cycled regularly, so you client code needs to capture a refreshed cookie and stored for subsequent request.
-2. IAM authentication is the access management system that powers all of the IBM Cloud services. To authenticate with IAM, you need the IAM API key and the host name of the Cloudant service. The API key is exchanged for a _bearer token_ using the IAM API and bearer token is passed to Cloudant with each request. The _bearer token_ only lasts for an hour, so must be renewed using the IAM service periodically.
+1. Legacy authentication is where a username or api-key and password are supplied with each request using _HTTP Basic Authentication_ or exchanged for cookie, using a one-off `session` API call. A session cookies is cycled regularly, so you client code needs to capture the refreshed cookie and and store it for subsequent request.
+2. IAM authentication is the access management system that underpins all of the IBM Cloud services. To authenticate with IAM, you need an IAM API key and the host name of the Cloudant service. The API key is exchanged for a _bearer token_ using the IAM API and the bearer token is passed to Cloudant with each request. The _bearer token_ only lasts for an hour, so must be renewed with the IAM service periodically.
 
-When a Cloudant service is provisioned, you can generate _IAM only_ credentials or both _IAM_ and _Legacy_ credentials or Both - you decide.
+When a Cloudant service is provisioned, you can generate _IAM only_ credentials or both _IAM_ and _Legacy_ credentials - you decide.
 
 ![](slides/Slide32.png)
 
@@ -44,17 +44,17 @@ Here's an example set of credentials:
 
 There are three official Cloudant libraries: Java, Node.js & Python.
 
-All three handle authentication automatically. You don't need to worry about how it exchanges the API key for a session token or IAM authentication works - it's handled for you.
+All three handle authentication automatically. You don't need to worry about how it exchanges the API key for a session token or how IAM authentication works - it is handled for you.
 
 When we look at the API from the command-line, we'll be using Basic Auth as a convenience, but it's recommended you use IAM authentication if possible as it allows better integration with the IBM Cloud platform and finer-grained permissions.
 
 ![](slides/Slide35.png)
 
 ---
-
+    
 Time for our next practical exercise.
 
-Log into the IBM Cloud and locate the IBM Cloudant Lite service we created last time. In the "Service Credentials" tab, click "New Credential" button to generate a set of "IAM+Legacy" credentials. Make a note of the JSON it returns - we'll need that for the next exercise.
+Log into the IBM Cloud and locate the IBM Cloudant Lite service we created last time. In the "Service Credentials" tab, click the "New Credential" button to generate a set of "IAM+Legacy" credentials. Make a note of the JSON it returns - we'll need that for the next exercise.
 
 Then visit the URL specified in the credentials JSON - what do you see?
 

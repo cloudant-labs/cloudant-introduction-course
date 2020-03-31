@@ -23,7 +23,7 @@ The advantage of a database having an HTTP API is that any device on the interne
 - command-line scripting tools like curl
 - mobile devices
 
-We're going to learn the API using curl, a free, open-source command-line tool that can dispatch HTTP requests. curl comes pre-installed on most Macs and Unix-like operating systems. If it's no present on your computer, google "curl" and follow the installation instructions.
+We're going to learn the API using curl, a free, open-source command-line tool that can dispatch HTTP requests. curl comes pre-installed on most Macs and Unix-like operating systems. If it's not present on your computer, google "curl" and follow the installation instructions.
 
 ![](slides/Slide48.png)
 
@@ -45,7 +45,15 @@ Now we don't want to type the URL of our Cloudant service every time so let's sa
 
 `export URL=` creates a variable called URL which we can access later.
 
+```sh
+export URL="https://username:password@host"
+```
+
 Furthermore, we can create an "alias" (a shortcut) called "acurl" which saves us further typing. This "acurl" command is an alias for curl but with the JSON content-type header and a couple of useful commmand-line switches.
+
+```sh
+alias acurl="curl -sgH 'Content-type: application/json'" 
+```
 
 We can test it by fetching "acurl $URL/" and we should get some JSON back from Cloudant.
 
@@ -93,9 +101,11 @@ This will return you a list of `_id` and `_rev` values for each document. If you
 
 ---
 
-If we want to a single document back from the database, then documents sit one level below the database in the hierarchy of the URL.
+If we want to fetch a single document back from the database, then documents sit one level below the database in the hierarchy of the URL.
 
-So `acurl $URL/books/id` means get get document id from the database books from the Cloudant service at the supplied URL.
+So `acurl $URL/books/id` means get get document id from the database books from the Cloudant service at the supplied URL. 
+
+Notice the hierarchy: service / database / document
 
 ![](slides/Slide54.png)
 
@@ -103,7 +113,7 @@ So `acurl $URL/books/id` means get get document id from the database books from 
 
 So far we've only used the "GET" HTTP method, which is the default one for curl and the one used when you enter a URL into your web browser.
 
-Cloudant's API often uses the method as a "verb" to describe the action being asked of the database: GET for fetching data.
+Cloudant's API often uses the HTTP method as a "verb" to describe the action being asked of the database: GET for fetching data.
 
 With curl we can specify the method we want to use with the `-X` command-line option.
 
@@ -123,11 +133,11 @@ Both write methods yield identical response. `ok: true` to show that the write w
 
 ---
 
-To modify a document we can use the PUT method, writing the new body to the URL that points to the document id we wish to overwrite. `-d` supplies the new document body and URL not only contains the database and id of the document, but critically the `rev` - the revision of the document we intend to mutate.
+To modify a document we can use the PUT method, writing the new body to the URL that points to the document id we wish to overwrite. `-d` supplies the new document body and the URL not only contains the database and id of the document, but critically the `rev` - the revision of the document we intend to mutate.
 
-If we forget and omit the the `rev` parameter we will get an error response.
+If we forget and omit the `rev` parameter we will get an error response.
 
-Note: HTTP response codes tell you whether a request succeed or not. Responses in the 200 range are successful, 400s are user errors (e.g. invalid parameters) and 500s are server-side errors. You can see the full HTTP request and response by supplying the `-v` command-line option to curl/acurl.
+Note: HTTP response codes tell you whether a request succeed or not. Responses in the 200 range are successful, 400s are user errors (e.g. invalid parameters) and 500s are server-side errors. You can see the full HTTP request and response by addtionally supplying the `-v` command-line option to curl/acurl.
 
 Also note that updates to documents happen in their entirety or not at all, there's no API construct to modify part of a document. A whole document must be supplied to overwrite a previous revision. 
 
@@ -148,9 +158,9 @@ To summarise:
 
 Understanding the HTTP API helps you grasp the relationship between your code and the Cloudant service.
 
-The URLS are hierarchical: service/database/document 
+The URLS are hierarchical: service/database/document or service/database/endpoint
 
-and the HTTP methods act as "verbs" defining the action to be done.
+The HTTP methods act as "verbs" defining the action to be done.
 
 All actions can be triggered using simple HTTP API calls, from the command-line or from your code and so can be easily scripted.
 
@@ -158,6 +168,10 @@ All actions can be triggered using simple HTTP API calls, from the command-line 
 
 ---
 
+Here's a screen capture of using Cloudant from a command-line terminal:
+
+
+---
 
 That's the end of this part. The next part is called ["The Bulk API"](./Part&#32;08&#32;-&#32;The&#32;Bulk&#32;API.md)
  

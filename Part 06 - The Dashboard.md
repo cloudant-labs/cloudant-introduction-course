@@ -32,7 +32,7 @@ If you leave the dashboard window unattended for a length of time, you will find
 
 ---
 
-The dashboard has number of tabs on the left hand side. Its default tab "Databases" that allows you to list the databases you have created in pages of 20. Each database is shown with the number of documents it is storing and how much disk space is being used. Click on a listed database name to examine its contents.
+The dashboard has a number of tabs on the left hand side. Its default tab, "Databases" allows you to list the databases you have created in pages of 20. Each database is shown with the number of documents it is storing and how much disk space is being used. Click on a database name to examine its contents.
 
 ![](slides/Slide41.png)
 
@@ -50,13 +50,13 @@ We now have a new empty database. The database's documents would be listed here 
 
 ---
 
-The Cloudant dashboard has created a template document for you with a pre-generated _id. Complete the rest of the attributes yourself and click "Create Document" to save.
+The Cloudant dashboard has created a template document for you with a pre-generated _id. Complete the rest of the attributes yourself to fill out the JSON document and click "Create Document" to save.
 
 ![](slides/Slide44.png)
 
 ---
 
-Now it's time for another practical exercise. Create a new database called "books" and in that database create three or more documents with fields: title, author, date, publisher, ISBN.
+Now it's time for another practical exercise. Create a new database called "books" and in that database create three or more documents with fields: title, author, date, publisher, ISBN - each representing a book of your choice.
 
 Once created, edit one of the documents, modifying the publication date.
 
@@ -68,8 +68,8 @@ Then delete one of the documents.
 
 To summarise:
 
-- The Cloudant Dashboard is a web app app built into the Cloudant service.
-- It's used to manage databases, documents, indexes, queries and replication jobs.
+- The Cloudant Dashboard is a web app app built into the Cloudant service and is part of the CouchDB open-source offerring.
+- It is used to manage databases, documents, indexes, queries and replication jobs.
 - It can also be used to monitor service throughput.
 - The Dashboard is simply an API client - anything that can be achieved with the dashboard can scripted by you using the HTTP API.
 
