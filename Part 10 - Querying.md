@@ -8,7 +8,7 @@ Welcome to the Introduction to Cloudant course, an eighteen part video series th
 
 This is part 10: "Querying".
 
-So far we have done CRUD operations from the command-line, the dashboard and from code. These are operations centred on the document's `_id`:
+So far we have performed CRUD (Create/Read/Update/Delete) operations from the command-line, the dashboard and from code. These are operations centred on the document's `_id`:
 
 - fetch document by id
 - update document whose `_id` = 'x'
@@ -38,20 +38,30 @@ Note: if you need to access objects within documents, you can use standard "dot 
 ![](slides/Slide72.png)
 
 ---
+
 We can also add 
 
-- "fields" - to specify the document attributes we want returned (the default is the entire document.
-- Sort – to define how the data is to be sorted. Sort is an array, allowing the sort to be calculated on multiple attributes.
-- Limit – the number of documents to return
+- `fields` - to specify the document attributes we want returned (the default is the entire document).
+- `sort` – to define how the data is to be sorted. Sort is an array, allowing the sort to be calculated on multiple attributes.
+- `limit` – the number of documents to return
 
-
-If you are from a relational database background, this is the equivalent SQL query to that last Cloudant query example.
 ![](slides/Slide73.png)
 
 ---
 
 
-If you are from a relational database background, this is the equivalent SQL query to that last Cloudant query example. The WHERE clause is the equivalent of SELECTOR in Cloudant Query, ORDER and LIMIT are exactly equivalent and the Cloudant Query FIELDS is handled in the list of fields listed after the SELECT keyword.
+If you are from a relational database background, this is the equivalent SQL query to that last Cloudant query example. 
+
+```sql
+SELECT title, author FROM books
+   WHERE date > "2018-01-01" 
+     AND ( author = "J Smith"
+           OR title = "Murder!")
+   ORDER BY year ASC
+   LIMIT 10;
+```
+
+The WHERE clause is the equivalent of SELECTOR in Cloudant Query, ORDER and LIMIT are exactly equivalent and the Cloudant Query FIELDS list is equivalent to the comma-separated list of attributes after the SELECT keyword.
 
 The JSON syntax may take a bit of getting used to, but MongoDB users should find it familiar.
 
@@ -75,13 +85,13 @@ Queries can also be triggered from `curl` too. The Query JSON, in this case, is 
 
 ---
 
-The Node.js codes is very similar. The Query is a standard JavaScript object which is passed to the `db.find` function which is POSTs to the `_find` endpoint on your behalf.
+The Node.js code is very similar. The Query is a standard JavaScript object which is passed to the `db.find` function which it POSTs to the `_find` endpoint on your behalf.
 
 ![](slides/Slide77.png)
 
 ---
 
-Now time for a practical exercise. Devise your own Cloudant Query that finds the titles of books _written in the 20th Century_. The Cloudant Query documentation is [here](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#query
+Now time for a practical exercise. Devise your own Cloudant Query that finds the titles of books _written in the 20th Century_. The Cloudant Query documentation is [at the on-screen URL](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#query
 ) if you need it.
 
 Pause the presentation here if you don't want to know the answer...
@@ -91,6 +101,20 @@ Pause the presentation here if you don't want to know the answer...
 ---
 
 Here's one solution:
+
+```js
+{
+   "selector": {
+      "$and": [
+        { "date": {"$gte": "1900-01-01"}},
+        { "date": {"$lt": "2000-01-01"}}
+      ]
+   },
+   "fields": [
+      "title"
+   ]
+}
+```
 
 I'm using the `$and` operator to combine two clauses on the `date` attribute. One clause to locate documents whose date `>=` 1900, the other to find documents whose date is < the year 2000. Both clauses have to be true to select a document. As we only need the `title` of the matching books, we can supply a `fields` attribute instead of being returned the entire document.
 

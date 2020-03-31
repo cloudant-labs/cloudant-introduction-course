@@ -168,11 +168,6 @@ All actions can be triggered using simple HTTP API calls, from the command-line 
 
 ---
 
-Here's a screen capture of using Cloudant from a command-line terminal:
-
-
----
-
 That's the end of this part. The next part is called ["The Bulk API"](./Part&#32;08&#32;-&#32;The&#32;Bulk&#32;API.md)
  
 ![](slides/Slide0.png)
