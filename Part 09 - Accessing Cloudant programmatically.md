@@ -6,7 +6,7 @@ Welcome to the Introduction to Cloudant course, an eighteen part video series th
 
 ---
 
-This is part 9: "Accessing Cloudant programmatically.
+This is part 9: "Accessing Cloudant programmatically".
 
 So far, our API interactions have either been triggered by the dashboard or via `curl` from the command line. In this section we'll see how Cloudant be accessed programmatically.
 

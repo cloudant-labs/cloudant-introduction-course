@@ -8,7 +8,7 @@ Welcome to the Introduction to Cloudant course, an eighteen part video series th
 
 This is part 16: "Cloudant Search". 
 
-There is another method of querying and indexing in Cloudant called Cloudant Search which we'll briefly explore in this part.
+There is another method of querying and indexing in Cloudant called _Cloudant Search_ which we'll briefly explore in this part.
 
 ![](slides/Slide116.png)
 
@@ -16,15 +16,15 @@ There is another method of querying and indexing in Cloudant called Cloudant Sea
 
 Cloudant Search is built on another open-source project, [Apache Lucene](https://lucene.apache.org/), which powers the search capabilities of many products including ElasticSearch.
 
-It is primarly designed for _free text_ search, that is preprocessing text: removing case, punctuation, common noise words and trimming common language-specfic word endings e.g. farmer becomes farm and farms becomes farm.
+It is primarly designed for _free text_ search, where blocks of text are pre-processed before being indexed: removing case, punctuation, common noise words and trimming common language-specfic word endings e.g. farmer becomes farm and farms becomes farm.
 
-This text-processing is performed by a choice of _analyzers_ which pre-process your data prior into indexing, and at query time, prior to searching. 
+This text-processing is performed by a choice of _analyzers_ at query time, prior to searching. 
 
 It also allows some aggregation functionality using a technique called _faceting_ as we'll see.
 
-A Cloudant Search is indexed by supplying JavaScript function, not unlike MapReduce except this time the `emit` function is replaced by an `index` function which expects the name of the field, the data itself and some options.
+A Cloudant Search index is created by supplying JavaScript function, not unlike MapReduce except this time the `emit` function is replaced by an `index` function, which expects the name of the field, the data itself and some options.
 
-In this example, the document's `name` and `title` are indexed with default options. The category is nominated for `faceting` (the aggregation functionality) and the `isbn` is stored in the index but not indexed for search itself. Sometimes is more efficient to store some items in the index rather than doing `include_docs=true` at query time.
+In this example, the document's `name` and `title` are indexed with default options. The category is nominated for `faceting` (the aggregation functionality) and the `isbn` is stored in the index but not _indexed_ for search itself. Sometimes it is more efficient to store some items in the index rather than doing `include_docs=true` at query time.
 
 ![](slides/Slide117.png)
 
@@ -38,7 +38,7 @@ Here are some examples:
 2. Find documents whose author is in the range austen --> dickens. This is an example of range querying on a string field.
 3. Find documents whose price is between 0 and 100 AND whose year is in the 19th century or whose author matches "charles dickens". This shows how logic can be built into queries.
 
-Cloudant Search is useful, not only for free-text search, but for when you know which attributes you are going to search on, but the queries are varied, with different combinations of attributes each time. This flexibility is difficult to implement with fixed-order MapReduce indexes.
+Cloudant Search is useful not only for free-text search, but for when you know which attributes you are going to search on, but the queries are varied, with different combinations of attributes each time. This flexibility is difficult to implement with fixed-order MapReduce indexes.
 
 ![](slides/Slide118.png)
 
@@ -57,7 +57,7 @@ Both of these forms of counts can be presented to a front-end user as a menans o
 
 ---
 
-To summarise
+To summarise:
 
 Cloudant Search indexes are defined with a supplied JavaScript function. They are built on Apache Lucene and are primarily used for free-text search matching, but the query language is useful for building flexible queries on a fixed set of indexed fields. It also has some powerful counting aggregations suitable for drilldown user interfaces.
 

@@ -8,7 +8,7 @@ Welcome to the Introduction to Cloudant course, an eighteen part video series th
 
 This is part 13: "Dates".
 
-We saw earlier in this course that JSON only natively models strings, numbers, booleans, objects & arrays. A common data type is to store a date or date/time value in a database. Here's some ideas on how that can be achieved with Cloudant.
+We saw earlier in this course that JSON only natively models strings, numbers, booleans, objects & arrays. A common use-case is to store a date or date/time value in a database. Here's some ideas on how that can be achieved with Cloudant.
 
 ![](slides/Slide96.png)
 
@@ -32,7 +32,7 @@ It too can be parsed in MapReduce functions and is very handy for comparing two 
 
 ---
 
-The third option is to store each date/time component in separate fields. This is more verbose than the previous options but has one key advantage if you're using Cloudant Query. Because Cloudant Query can act up on data in the form it exists in the document itself, if you need to query on a single date component e.g the month, then you'd need that item broken out in the document.
+The third option is to store each date/time component in separate fields. This is more verbose than the previous options but has one key advantage if you're using Cloudant Query. Because Cloudant Query can only act upon data in the form it exists in the document itself, if you need to query on a single date component e.g the month, then you'd need that item broken out in the document.
 
 ![](slides/Slide99.png)
 

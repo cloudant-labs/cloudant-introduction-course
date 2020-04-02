@@ -28,7 +28,7 @@ In the first example the `products` database is created as a partitioned databas
 
 When adding documents to a partitioned database you _must_ supply a document `_id` - (there are no auto-generated document `_ids`). A document `_id` has two parts, separated by a colon character:
 
-1. the partition key - a string which defines on _partition_ to store the document.
+1. the partition key - a string which defines on which _partition_ to store the document.
 2. a document key - a string that uniquely identifies a document within the partition.
 
 In the top example a book is being added into the `book` partition of the products database.
@@ -45,16 +45,16 @@ The effect of this is that documents sharing a partition key reside in the same 
 
 ---
 
-The advantge comes when retrieving data. We can direct Cloudant Queries, MapReduce requests and searches at _a single partition_. In this example, a Cloudant Query selector is being sent to a the `book` partition. This has the effect only exercising a fraction of the Cloudant infrastruture (only the shard that hosts the `book` partition are used, the rest of the cluster remains idle).
+The advantage comes when retrieving data. We can direct Cloudant Queries, MapReduce requests and searches at _a single partition_. In this example, a Cloudant Query selector is being sent to the `book` partition. This has the effect of only exercising a fraction of the Cloudant infrastruture (only the shard that hosts the `book` partition are used, the rest of the cluster remains idle).
 
 This makes for faster query performance, cheaper query costs and better scalability.
 
 The key to great partitioned query performance is the choice of partition key:
 
 - It needs to be a value that repeats within your data set i.e. there a several items in the `book` partition.
-- There needs to be many partitions. If there are only a handful of categories, then category is a bad choice of partition key. It needs to be something that has many values e.g. deviceId in an IoT application.
+- There needs to be many partitions. If there are only a handful of categories, then category is a bad choice of partition key. It needs to be something that has many values e.g. deviceId in an IoT application or orderId in an e-commerce system.
 - It needs to match the queries that your application is making. If the most common use-case is searching within a product category, then partitioning by category may be a good fit.
-- Avoid hot partitions - traffic should be evenly spread across your partitions. If your choice of partition key is likely to lead to much more traffic hitting a small number of partitions, then this might not be good choice of partition key.
+- Avoid hot partitions - traffic should be evenly spread across your partitions. If your choice of partition key is likely to lead to much more traffic hitting a small number of partitions, then this makes for a poor choice of partition key.
 
 ![](slides/Slide114.png)
 
@@ -62,20 +62,17 @@ The key to great partitioned query performance is the choice of partition key:
 
 To summarise
 
+Partitioned databases are created with the `partitioned=true` flag and documents have a two part id where the partition key and document key are joined by a colon character.
 
+Documents in the same partition are stored in document key order in the same database shard. Knowing this, we can make queries directed at a single partition that run faster and more cheaply.
 
-Partitioned atabases are created with the `partitioned=true` flag and documents have a two part it where the partition key and document key are joined by a colon character.
-
-
-Documents in the same partition are stored in document key order in the same database shard. This can be used to make queries directed at a single partition run faster and more cheaply.
-
-Note it's still possible to query across partitions in a partitioned database. When creating a secondary index, you choose whether its purpose is for per-partition or global scope.
+Note: it's still possible to query across partitions in a partitioned database. When creating a secondary index, you choose whether its purpose is for per-partition or global scope.
 
 ![](slides/Slide115.png)
 
 ---
 
-That's the end of this part. The next part is called ["Cloudant Search"](./Part&#32;16&#32;-&#32;Cloudan&#32;Search.md)
+That's the end of this part. The next part is called ["Cloudant Search"](./Part&#32;16&#32;-&#32;Cloudant&#32;Search.md)
  
 ![](slides/Slide0.png)
 

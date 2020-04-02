@@ -18,7 +18,7 @@ Cloudant is a distributed database with data stored around a cluster of storage 
 
 When data is written to Cloudant one of the nodes in the ring will handle the request: it's job is to instruct three copies of the data to be stored in three storage nodes. Data is stored in triplicate in Cloudant, so each shard of a database is stored multiple times, often across a region's availability zones.
 
-When you make an API call to write data and get a reponse back, we have written the data to at least 2 of the 3 storage nodes. Data is flushed to disk - it isn't cached in memory to be flushed data. We consider that too risky and prone to data loss.
+When you make an API call to write data and get a response back, we have written the data to at least 2 of the 3 storage nodes. Data is flushed to disk - it isn't cached in memory to be flushed data. We consider that technique too risky and prone to data loss.
 
 ![](slides/Slide125.png)
 
@@ -38,13 +38,13 @@ What happens if a node goes down or needs to be rebooted for maintenance? The re
 
 ---
 
-Even if two nodes go down, most shards will still have three copies, some will have two and some will have one. Write will continue to work, although the HTTP response code will reflect that the _quorum_ of 2 node confirmations wasn't reached.
+Even if two nodes go down, most shards will still have three copies, some will have two and some will have one. Writes will continue to work, although the HTTP response code will reflect that the _quorum_ of 2 node confirmations wasn't reached.
 
 ![](slides/Slide128.png)
 
 ---
 
-It's the same store for reads. Service continues will a failed node. We can survive one failed node.
+It's the same story for reads. Service continues with a failed node. We can survive one failed node...
 
 ![](slides/Slide129.png)
 
@@ -66,7 +66,7 @@ When a node returns, it will catch up any missed data from its peers and then re
 The nature of this configuration where any node can handle a request and data is distributed around nodes without the sort of locking you would see in a relational database, is that Cloudant exhibits _eventual consistency_:
 
 - Cloudant favours _availability_ over _consistency_: it would rather be up an answering API calls, than be down because it can't provide consistency guarantees. (a relational database is often configured in the opposite way: it operates in a consistent manner or not at all).
-- The upshot of this as developer is that your app should not "read its writes" in a short period of time - there may be a small time window in which it's possible to see an older version of a document than the one you just updated. _Eventually_ the data will flow around the cluster and in most cases, the quorum mechanism will provide the illusion of consistency, but it's best not to rely on it.
+- The upshot of this as a developer is that your app should not "read its writes" in a short period of time - there may be a small time window in which it is possible to see an older version of a document than the one you just updated. _Eventually_ the data will flow around the cluster and in most cases, the quorum mechanism will provide the illusion of consistency, but it is best not to rely on it.
 
 Note in CouchDB 4, and in Cloudant services based on that code version, a different consistency model will be employed.
 
@@ -74,9 +74,9 @@ Note in CouchDB 4, and in Cloudant services based on that code version, a differ
 
 ---
 
-If your data model requires you to update a document over and over and a short time window, it's possible that multiple writes for the same revision number are accepted leading to a branch in the revision tree - known as a conflict. In this example revision "2" was modified in two diffent ways, causing 2 revision 3s. It's possible to tidy up conflicts programmatically, but they should be avoided as they can cause performance issues in extreme circumstances.
+If your data model requires you to update a document over and over in a short time window, it's possible that multiple writes for the same revision number are accepted leading to a branch in the revision tree - known as a conflict. In this example revision "2" was modified in two diffent ways, causing 2 revision 3s. It's possible to tidy up conflicts programmatically, but they should be avoided as they can cause performance issues in extreme circumstances.
 
-Conflicts can also happen when using replication and a document is modified in different ways and then the conflicting revisions are merged in via replication. Cloudant does not throw away data in this scenario - a "winning" revision is chosen, but the non-winning revisions can be accessed and your application can resolve the conflict by electing a new winner, deleting unwanted revisions or any action you need. A conflict is not an error condition, its a side effect of having disconnected copies of data that can be modified without locking. 
+Conflicts can also happen when using replication and a document is modified in different ways and then the conflicting revisions are merged in via replication. Cloudant does not throw away data in this scenario - a "winning" revision is chosen, but the non-winning revisions can be accessed and your application can resolve the conflict by electing a new winner, deleting unwanted revisions or any action you need. A conflict is not an error condition, its a side effect of having disconnected copies of data that can be modified without locking - Cloudant chooses to handle this by not discarding clashing changes, but storing them as a conflict.
 
 ![](slides/Slide133.png)
 
@@ -95,7 +95,7 @@ Unwanted revisions can be removed using the normal DELETE operation, specifying 
 ---
 To summarise 
 
-Cloudant is a distributed database which stores your database broken into multiple shards, with three copies of each shard spread around a ring of storage nodes. Cloudant is eventual consistent, favouring high availability over strong consistency.
+Cloudant is a distributed service which stores databases which broken into multiple shards, with three copies of each shard spread around a ring of storage nodes. Cloudant is eventually consistent, favouring high availability over strong consistency.
 
 Avoid writing to the same document over and over so as not to create conflicts, although conflicts are sometime inevitable in replicating situations.
 
@@ -107,7 +107,7 @@ Note: Cloudant products based of CouchDB 4 may have a different consistency mode
 
 ---
 
-That's the end of this course. For more information please consult our documentation and our blog
+That's the end of this course. For more information please consult our documentation and our blog.
  
 ![](slides/Slide199.png)
 

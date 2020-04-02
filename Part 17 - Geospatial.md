@@ -17,7 +17,7 @@ The final means of querying data in Cloudant is using _geospatial indexes_.
 
 Geospatial indexes are unique to Cloudant - you won't find them in the CouchDB codebase. 
 
-Data is stored as [GeoJSON](https://geojson.org/) in the Cloudant database to describe point, line, polygon, multi-point and multi-line and mulit-poloygon objects. Each object, as well as the geographic information, have optional _properties_: meta data about the object which are returned in the search results.
+Data is stored as [GeoJSON](https://geojson.org/) in the Cloudant database to describe point, line, polygon, multi-point, multi-line and multi-poloygon objects. Each object, as well as the geographic information, can have optional _properties_: meta data about the object which are returned in the search results.
 
 Again an index is defined as a JavaScript function and then queries can be used ask questions of your collection of geographic features e.g. find me the nearest object to this point, find objects within this polygon, find objects along this path, find objects that intersect with this object.
 

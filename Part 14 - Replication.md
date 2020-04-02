@@ -8,8 +8,6 @@ Welcome to the Introduction to Cloudant course, an eighteen part video series th
 
 This is part 14: "Replication". 
 
-
-
 ![](slides/Slide101.png)
 
 ---
@@ -18,11 +16,11 @@ Replication is a core feature of Cloudant. It is the transfer of data from one d
 
 The source and target databases can reside on the same Cloudant service, or be geographically separated, for example a US Cloudant database replicating to one in Europe.
 
-The replication protocal is shared with Apache CouchDB, so replication is often used by enterprises copying data from a cloud-based database to one running CouchDB in their own premises.
+The Cloudant replication protocal is shared with Apache CouchDB, so replication is often used by enterprises copying data from a cloud-based database to one running CouchDB in their own premises.
 
-PouchDB, a JavaScript-based CouchDB clone that runs in Node.js stacks or in the web browser can also be used to replicate data to or from Cloudant.
+PouchDB, a JavaScript-based CouchDB clone that runs in Node.js stacks or in the web browser can also be used to replicate data to or from Cloudant and/or CouchDB.
 
-And there is the Cloudant Sync libraries, which allow native iOS or Android apps to sync data to and from a Cloudant service.
+And there are the Cloudant Sync libraries, which allow native iOS or Android apps to sync data to and from a Cloudant service.
 
 Replication is a one-way operation from source to target which moves all data (deletions, conflicts, attachments as well as documents) and can be triggered in one of two ways:
 
@@ -56,7 +54,7 @@ From your Cloudant dashboard:
 
 ---
 
-Replication can be used to move data from a Cloudant database to an on-premise CouchDB instance. The replication can be controlled bt the Cloudant or the CouchDB end i.e you can ask Cloudant to send its changes to CouchDB or you can ask CouchDB to pull the changes from Cloudant. Bear in mind that the replication controller must have network visibility of both HTTP APIs.
+Replication can be used to move data from a Cloudant database to an on-premise CouchDB instance. The replication can be controlled by the Cloudant or the CouchDB end i.e you can ask Cloudant to send its changes to CouchDB or you can ask CouchDB to pull the changes from Cloudant. Bear in mind that the replication controller must have network visibility of both HTTP APIs.
 
 PouchDB also speaks the same replication protocol so can be used to transfer data to and from PouchDB & Cloudant. It's most likely that PouchDB would be the replication controller in this case.
 
@@ -64,7 +62,7 @@ PouchDB also speaks the same replication protocol so can be used to transfer dat
 
 ---
 
-PouchDB is commonly used to create _offline first_ apps which collect data even when not connected to the interent and then write data to Cloudant when they come back online, giving their users an _always on_ service.
+PouchDB is commonly used to create _offline first_ apps which collect data even when not connected to the internet and then write data to Cloudant when they come back online, giving their users an _always on_ service.
 
 ![](slides/Slide106.png)
 
@@ -90,7 +88,7 @@ To summarise:
 
 Cloudant replication is a mechanism for copying data from a source database to a target database. 
 
-Replications can be one-off or continuous and can optionally be filtered with a JavaScript function or Cloudant Query selector and can be resumed from where a previous replication left of.
+Replications can be one-off or continuous and can optionally be filtered with a JavaScript function or Cloudant Query selector and can be resumed from where a previous replication left off.
 
 ![](slides/Slide109.png)
 
