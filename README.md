@@ -4,4 +4,4 @@ The original Powerpoint slides are [here](https://ibm.ent.box.com/folder/6026228
 
 Audio recordings are to made of the scripts and the stitched together with the exported slide PNGs to form videos.
 
-[START HERE](./Part&#32;01&#32;-&#32;What&#32;is&#32;Cloudant.md)
+[START HERE](./Part&#32;01&#32;-&#32;What&#32;is&#32;Cloudant.md) 
